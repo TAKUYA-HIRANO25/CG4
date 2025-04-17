@@ -1,8 +1,11 @@
 #pragma once
 #include "KamataEngine.h"
-
+#include "Parrticle.h"
 class GameScene {
 public:
+	GameScene();
+
+	~GameScene();
 
 	void Initialize();
 
@@ -10,4 +13,10 @@ public:
 
 	void Drow();
 
+private:
+	KamataEngine::Model* modelParticle_ = nullptr;
+
+	KamataEngine::Camera camera_;
+
+	Particle* particle_ = nullptr;
 };
