@@ -16,4 +16,6 @@ private:
 
 	KamataEngine::Model* model_ = nullptr;
 
+	KamataEngine::ObjectColor objectColor_;
+	KamataEngine::Vector4 color_;
 };

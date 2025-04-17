@@ -1,6 +1,7 @@
 #include "GameScene.h"
 
 using namespace KamataEngine;
+using namespace MathUtility;
 
 GameScene::GameScene() {}
 
