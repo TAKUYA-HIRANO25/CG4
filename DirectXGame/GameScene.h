@@ -18,5 +18,5 @@ private:
 
 	KamataEngine::Camera camera_;
 
-	Particle* particle_ = nullptr;
+		std::list<Particle*> particles_;
 };

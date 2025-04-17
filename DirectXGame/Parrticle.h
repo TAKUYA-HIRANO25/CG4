@@ -4,7 +4,7 @@
 class Particle {
 public:
 
-	void Initialize(KamataEngine::Model* model);
+	void Initialize(KamataEngine::Model* model, KamataEngine::Vector3 position);
 
 	void Update();
 
@@ -18,4 +18,6 @@ private:
 
 	KamataEngine::ObjectColor objectColor_;
 	KamataEngine::Vector4 color_;
+
+	KamataEngine::Vector3 velocity_;
 };

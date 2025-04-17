@@ -16,13 +16,20 @@ void GameScene::Initialize() {
 
 	camera_.Initialize();
 
-	particle_ = new Particle();
-	particle_->Initialize(modelParticle_);
+	for (int i = 0; i < 150; i++) {
+		Particle* particle = new Particle();
+		Vector3 position = {0.5f * i, 0.0f, 0.0f};
+
+		particle->Initialize(modelParticle_, position);
+		particles_.push_back(particle);
+	}
 
 }
 
 void GameScene::Update() { 
-	particle_->Update();
+	for (Particle* particle : particles_) {
+		particle->Update();
+	}
 
 }
 
@@ -30,7 +37,10 @@ void GameScene::Drow() {
 	DirectXCommon* dxCommon = DirectXCommon::GetInstance();
 
 	Model::PreDraw(dxCommon->GetCommandList());
-	particle_->Drow(camera_);
+
+	for (Particle* particle : particles_) {
+		particle->Drow(camera_);
+	}
 
 
 	Model::PostDraw();
