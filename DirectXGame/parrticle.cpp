@@ -16,6 +16,8 @@ void Particle::Initialize(Model* model, KamataEngine::Vector3 position, KamataEn
 	worldTransform_.Initialize();
 	worldTransform_.translation_ = position;
 
+	worldTransform_.scale_ = {0.2f, 0.2f, 0.2f};
+
 }
 
 void Particle::Update() { 
