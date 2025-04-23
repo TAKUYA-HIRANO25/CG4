@@ -1,5 +1,6 @@
 #include "GameScene.h"
 #include <random>
+
 using namespace KamataEngine;
 using namespace MathUtility;
 
@@ -34,6 +35,14 @@ void GameScene::Initialize() {
 		particle->Initialize(modelParticle_, position,velocity);
 		particles_.push_back(particle);
 	}
+
+	particles_.remove_if([](Particle* particle) {
+		if (particle->IsFinished()) {
+			delete particle;
+			return true;
+		}
+		return false;
+	});
 
 	camera_.Initialize();
 

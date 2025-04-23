@@ -1,4 +1,5 @@
 #include "Parrticle.h"
+#include <algorithm>
 
 using namespace KamataEngine;
 using namespace MathUtility;
@@ -17,11 +18,21 @@ void Particle::Initialize(Model* model, KamataEngine::Vector3 position, KamataEn
 	worldTransform_.translation_ = position;
 
 	worldTransform_.scale_ = {0.2f, 0.2f, 0.2f};
-
 }
 
 void Particle::Update() { 
-	
+	if (isFinished_) {
+		return;
+	}
+
+	counter_ += 1.0f / 60.0f;
+
+	if (counter_ >= kDurtion_) {
+		isFinished_ = true;
+	}
+
+	color_.w = std::clamp(1.0f - counter_ / kDurtion_, 0.0f, 1.0f);
+
 	objectColor_.SetColor(color_);
 
 	worldTransform_.translation_ += velocity_;

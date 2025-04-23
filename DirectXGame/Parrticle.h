@@ -10,6 +10,8 @@ public:
 
 	void Drow(KamataEngine::Camera& camera);
 
+	bool IsFinished() { return isFinished_; }
+
 private:
 
 	KamataEngine::WorldTransform worldTransform_;
@@ -20,4 +22,10 @@ private:
 	KamataEngine::Vector4 color_;
 
 	KamataEngine::Vector3 velocity_;
+
+	bool isFinished_ = false;
+
+	float counter_ = 0.0f;
+	const float kDurtion_ = 1.0f;
+
 };
