@@ -23,7 +23,7 @@ GameScene::~GameScene() {
 void GameScene::Initialize() {
 
 	modelParticle_ = Model::CreateSphere(4, 4);
-
+	srand((unsigned)time(NULL));
 	camera_.Initialize();
 
 
@@ -31,9 +31,10 @@ void GameScene::Initialize() {
 
 void GameScene::Update() {
 
-	Vector3 position = {distribution(randomEngine) * 30.0f, distribution(randomEngine) * 20.0f, 0};
-
-	ParticleBorm(position);
+	if (rand() % 20 == 0) {
+		Vector3 position = {distribution(randomEngine) * 30.0f, distribution(randomEngine) * 20.0f, 0};
+		ParticleBorm(position);
+	}
 
 	for (Particle* particle : particles_) {
 		particle->Update();
@@ -57,7 +58,7 @@ for (Particle* particle : particles_) {
 
 void GameScene::ParticleBorm(Vector3 position) {
 
-	for (int i = 0; i <) {
+	for (int i = 0; i < 150; i++) {
 		Particle* particle = new Particle();
 		Vector3 velocity = {distribution(randomEngine), distribution(randomEngine), 0};
 		Normalize(velocity);
