@@ -14,3 +14,4 @@ private:
 
 	KamataEngine::Model* model_ = nullptr;
 };
+
