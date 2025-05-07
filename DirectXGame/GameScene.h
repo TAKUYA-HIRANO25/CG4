@@ -15,6 +15,8 @@ public:
 
 	void Drow();
 
+	void ParticleBorm(KamataEngine::Vector3 position);
+
 private:
 
 	KamataEngine::Model* modelParticle_ = nullptr;

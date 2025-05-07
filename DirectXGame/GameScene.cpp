@@ -24,32 +24,16 @@ void GameScene::Initialize() {
 
 	modelParticle_ = Model::CreateSphere(4, 4);
 
-
-	for (int i = 0; i < 150; i++) {
-		Particle* particle = new Particle();
-		Vector3 position = {0.0f, 0.0f, 0.0f};
-		Vector3 velocity = {distribution(randomEngine), distribution(randomEngine), 0};
-		Normalize(velocity);
-		velocity *= distribution(randomEngine);
-		velocity *= 0.1f;
-		particle->Initialize(modelParticle_, position,velocity);
-		particles_.push_back(particle);
-	}
-
-	particles_.remove_if([](Particle* particle) {
-		if (particle->IsFinished()) {
-			delete particle;
-			return true;
-		}
-		return false;
-	});
-
 	camera_.Initialize();
 
 
 }
 
 void GameScene::Update() {
+
+	Vector3 position = {distribution(randomEngine) * 30.0f, distribution(randomEngine) * 20.0f, 0};
+
+	ParticleBorm(position);
 
 	for (Particle* particle : particles_) {
 		particle->Update();
@@ -70,3 +54,23 @@ for (Particle* particle : particles_) {
 	Model::PostDraw();
 
 }
+
+void GameScene::ParticleBorm(Vector3 position) {
+
+	Particle* particle = new Particle();
+	Vector3 velocity = {distribution(randomEngine), distribution(randomEngine), 0};
+	Normalize(velocity);
+	velocity *= distribution(randomEngine);
+	velocity *= 0.1f;
+	particle->Initialize(modelParticle_, position, velocity);
+	particles_.push_back(particle);
+
+	particles_.remove_if([](Particle* particle) {
+		if (particle->IsFinished()) {
+			delete particle;
+			return true;
+		}
+		return false;
+	});
+}
+
