@@ -57,14 +57,15 @@ for (Particle* particle : particles_) {
 
 void GameScene::ParticleBorm(Vector3 position) {
 
-	Particle* particle = new Particle();
-	Vector3 velocity = {distribution(randomEngine), distribution(randomEngine), 0};
-	Normalize(velocity);
-	velocity *= distribution(randomEngine);
-	velocity *= 0.1f;
-	particle->Initialize(modelParticle_, position, velocity);
-	particles_.push_back(particle);
-
+	for (int i = 0; i <) {
+		Particle* particle = new Particle();
+		Vector3 velocity = {distribution(randomEngine), distribution(randomEngine), 0};
+		Normalize(velocity);
+		velocity *= distribution(randomEngine);
+		velocity *= 0.1f;
+		particle->Initialize(modelParticle_, position, velocity);
+		particles_.push_back(particle);
+	}
 	particles_.remove_if([](Particle* particle) {
 		if (particle->IsFinished()) {
 			delete particle;
