@@ -20,4 +20,6 @@ void Effect::Update() {
 	worldTransform_.UpdateMatrix();
 }
 
-void Effect::Drow(Camera& camera) { model_->Draw(worldTransform_, camera); }
+void Effect::Drow(Camera& camera) {
+	model_->Draw(worldTransform_, camera); 
+}
