@@ -78,9 +78,9 @@ void GameScene::EffectBorn(KamataEngine::Vector3 position) {
 
 		float angleRad = float(finalAngle * std::numbers::pi / 180.0f);
 
-		Vector3 scale = {0.3f, scaleYDist(randomEngine), 1.0f};
+		Vector3 scale = {1.0f, scaleYDist(randomEngine), 1.0f};
 
-		Vector3 rotation = {0.0f, 0.0f, angleRad};
+		Vector3 rotation = {0.0f, angleRad, 0.0f};
 
 		effect->Initialize(modelEffect_, scale, rotation, position);
 

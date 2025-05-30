@@ -9,11 +9,11 @@ void Effect::Initialize(Model* model, Vector3 scale, Vector3 rotate, Vector3 pos
 
 	model_ = model;
 
-	scale_ = scale;
-	rotation_ = rotate;
-
 	worldTransform_.Initialize();
 
+	worldTransform_.scale_ = scale;
+	worldTransform_.rotation_ = rotate;
+	worldTransform_.Initialize();
 	worldTransform_.translation_ = position;
 
 	objectColor_.Initialize();
@@ -21,8 +21,6 @@ void Effect::Initialize(Model* model, Vector3 scale, Vector3 rotate, Vector3 pos
 }
 
 void Effect::Update() { 
-	worldTransform_.scale_ = scale_;
-	worldTransform_.rotation_ = rotation_;
 
 	if (isFinished_) {
 		return;

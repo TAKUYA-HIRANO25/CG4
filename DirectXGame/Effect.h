@@ -15,10 +15,6 @@ private:
 	KamataEngine::WorldTransform worldTransform_;
 
 	KamataEngine::Model* model_ = nullptr;
-
-	KamataEngine::Vector3 scale_;
-	KamataEngine::Vector3 rotation_;
-
 	
 	KamataEngine::ObjectColor objectColor_;
 	
