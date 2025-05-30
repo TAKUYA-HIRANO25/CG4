@@ -18,5 +18,5 @@ private:
 
 	KamataEngine::Camera camera_;
 
-	Effect* effect_ = nullptr;
+	std::list<Effect*> effects_;
 };
