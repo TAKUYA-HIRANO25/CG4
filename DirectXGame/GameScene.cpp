@@ -69,7 +69,7 @@ void GameScene::EffectBorn(KamataEngine::Vector3 position) {
 	int effectCount = 10;
 
 	for (int i = 0; i < effectCount; i++) {
-		
+
 		Effect* effect = new Effect();
 
 		float baseAngle = (360.0f / effectCount) * i;
@@ -79,11 +79,11 @@ void GameScene::EffectBorn(KamataEngine::Vector3 position) {
 		float angleRad = float(finalAngle * std::numbers::pi / 180.0f);
 
 		Vector3 scale = {0.3f, scaleYDist(randomEngine), 1.0f};
-		
-		Vector3 rotation = {0.0f, 0.0f, angleRad};
-		
-		effect->Initialize(modelEffect_, scale, rotation, position);
-		
-		effects_.push_back(effect);
 
+		Vector3 rotation = {0.0f, 0.0f, angleRad};
+
+		effect->Initialize(modelEffect_, scale, rotation, position);
+
+		effects_.push_back(effect);
+	}
 }

@@ -14,6 +14,8 @@ void Effect::Initialize(Model* model, Vector3 scale, Vector3 rotate, Vector3 pos
 
 	worldTransform_.Initialize();
 
+	worldTransform_.translation_ = position;
+
 	objectColor_.Initialize();
 	color_ = {1, 1, 1, 1};
 }
