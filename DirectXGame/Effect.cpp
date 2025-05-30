@@ -4,7 +4,7 @@
 using namespace KamataEngine;
 using namespace MathUtility;
 
-void Effect::Initialize(Model* model,Vector3 scale, Vector3 rotate) {
+void Effect::Initialize(Model* model, Vector3 scale, Vector3 rotate, Vector3 position) {
 	assert(model);
 
 	model_ = model;

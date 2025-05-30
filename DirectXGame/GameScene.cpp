@@ -27,34 +27,18 @@ void GameScene::Initialize() {
 
 	camera_.Initialize();
 
-	int effectCount = 10;
+	srand((unsigned)time(NULL));
 
-	// エフェクトの生成
-	for (int i = 0; i < effectCount; i++) {
-		// 生成
-		Effect* effect = new Effect();
-
-		// 放射状の基準角度
-		float baseAngle = (360.0f / effectCount) * i;
-
-		// ランダムなオフセットを加える
-		float finalAngle = baseAngle + rotZDist(randomEngine);
-
-		// ラジアンに変換
-		float angleRad = float(finalAngle * std::numbers::pi / 180.0f);
-
-		// サイズ
-		Vector3 scale = {0.3f, scaleYDist(randomEngine), 1.0f};
-		// 角度
-		Vector3 rotation = {0.0f, 0.0f, angleRad};
-		// 初期化
-		effect->Initialize(modelEffect_, scale, rotation);
-		// リストに追加
-		effects_.push_back(effect);
-	}
 }
 
 void GameScene::Update() { 
+
+	if (rand() % 20 == 0) {
+		
+		Vector3 position = {distribution(randomEngine) * 30.0f, distribution(randomEngine) * 20.0f, 0};
+
+		EffectBorn(position);
+	}
 
 	for (Effect* effect : effects_) {
 		effect->Update();
@@ -79,4 +63,27 @@ void GameScene::Drow() {
 	}
 
 	Model::PostDraw();
+}
+
+void GameScene::EffectBorn(KamataEngine::Vector3 position) {
+	int effectCount = 10;
+
+	for (int i = 0; i < effectCount; i++) {
+		
+		Effect* effect = new Effect();
+
+		float baseAngle = (360.0f / effectCount) * i;
+
+		float finalAngle = baseAngle + rotZDist(randomEngine);
+
+		float angleRad = float(finalAngle * std::numbers::pi / 180.0f);
+
+		Vector3 scale = {0.3f, scaleYDist(randomEngine), 1.0f};
+		
+		Vector3 rotation = {0.0f, 0.0f, angleRad};
+		
+		effect->Initialize(modelEffect_, scale, rotation, position);
+		
+		effects_.push_back(effect);
+
 }

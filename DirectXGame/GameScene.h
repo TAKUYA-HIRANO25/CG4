@@ -13,6 +13,8 @@ public:
 
 	void Drow();
 
+	void EffectBorn(KamataEngine::Vector3 position);
+
 private:
 	KamataEngine::Model* modelEffect_ = nullptr;
 
