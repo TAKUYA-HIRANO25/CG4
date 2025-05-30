@@ -22,7 +22,7 @@ void Effect::Initialize(Model* model, Vector3 scale, Vector3 rotate, Vector3 pos
 
 void Effect::Update() { 
 	worldTransform_.translation_.y -= 0.1f;
-	worldTransform_.scale_.y -= 0.05f;
+	worldTransform_.scale_.x -= 0.01f;
 
 	if (isFinished_) {
 		return;
